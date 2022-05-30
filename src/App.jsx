@@ -1,9 +1,10 @@
 import React from 'react'
+import LoginContainer from './day1/LoginContainer'
 
 const App = () => {
   return (
     <div>
-      <h1 className='text-3xl font-bold text-gray-400 underline'>Hello world!</h1>
+      <LoginContainer />
     </div>
   )
 }
