@@ -1,5 +1,5 @@
 import React from 'react'
-import Card from './Card'
+import Card from '../UI/Card'
 
 const AddExpenses = () => {
   const [open, setOpen] = React.useState(false)

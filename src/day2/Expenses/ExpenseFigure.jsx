@@ -1,5 +1,6 @@
 import React from 'react'
-import Card from './Card'
+// import Card from './Card'
+import Card from '../UI/Card'
 import ExpenseBar from './ExpenseBar'
 
 const ExpenseFigure = () => {

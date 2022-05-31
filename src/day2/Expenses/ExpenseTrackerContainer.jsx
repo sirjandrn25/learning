@@ -1,5 +1,6 @@
 import React from 'react'
-import Card from './Card'
+// import Card from './Card'
+import Card from '../UI/Card'
 import ItemContainer from './ItemContainer'
 import ExpenseFigure from './ExpenseFigure'
 import FilterExpenses from './FilterExpenses'
