@@ -43,7 +43,7 @@ const Form = ({ handleOpen, onAddNewExpense }) => {
     const new_expense = {
       id: Math.floor(Math.random() * 1000),
       title: title,
-      amount: amount,
+      amount: +amount,
       date: new Date(date),
     }
     onAddNewExpense(new_expense)

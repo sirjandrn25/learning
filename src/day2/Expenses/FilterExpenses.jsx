@@ -11,7 +11,6 @@ const rangeOfDate = (start, end) => {
 const FilterExpenses = (props) => {
   // const [filterYear, setFilterYear] = React.useState('2022')
   const handleFilterChange = (e) => {
-    console.log(e.target.value)
     props.onChangeFilterYear(e.target.value)
   }
 

@@ -5,6 +5,7 @@ import ItemContainer from './Expenses/ItemContainer'
 import ExpenseFigure from './Expenses/ExpenseFigure'
 import FilterExpenses from './Expenses/FilterExpenses'
 import AddExpenses from './AddNewExpense/AddExpenses'
+import ExpensesChart from './Expenses/ExpensesChart'
 
 const item_list = [
   {
@@ -30,9 +31,7 @@ const ExpenseTrackerContainer = () => {
       return [expense, ...prev_expenses]
     })
   }
-  // const filterExpenses = () => {
-  //   return expenses.filter((expense) => expense.getFullYear().toString() === filterYear)
-  // }
+  const filterExpenses = expenses.filter((expense) => expense.date.getFullYear().toString() === filterYear)
 
   return (
     <div className='bg-gray-500 min-h-screen w-screen flex justify-center items-center'>
@@ -40,8 +39,9 @@ const ExpenseTrackerContainer = () => {
         <AddExpenses onAddNewExpense={addNewExpense} />
         <Card className='w-full bg-gray-900 p-5 '>
           <FilterExpenses onChangeFilterYear={setFilterYear} filterYear={filterYear} />
-          <ExpenseFigure expenses={expenses} filterYear={filterYear} />
-          <ItemContainer items={expenses} filterYear={filterYear} />
+          {/* <ExpenseFigure expenses={filterExpenses} /> */}
+          <ExpensesChart expenses={filterExpenses} />
+          <ItemContainer items={filterExpenses} />
         </Card>
       </div>
     </div>
