@@ -2,7 +2,7 @@ import React from 'react'
 // import Card from './Card'
 import Card from './UI/Card'
 import ItemContainer from './Expenses/ItemContainer'
-import ExpenseFigure from './Expenses/ExpenseFigure'
+
 import FilterExpenses from './Expenses/FilterExpenses'
 import AddExpenses from './AddNewExpense/AddExpenses'
 import ExpensesChart from './Expenses/ExpensesChart'

@@ -37,9 +37,7 @@ const Form = ({ handleOpen, onAddNewExpense }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(title)
-    console.log(amount)
-    console.log(date)
+
     const new_expense = {
       id: Math.floor(Math.random() * 1000),
       title: title,

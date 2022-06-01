@@ -4,10 +4,10 @@ const ChartBar = (props) => {
   let fillHeight = '0%'
   if (props.maxValue > 0) {
     fillHeight = Math.floor((props.value / props.maxValue) * 100) + '%'
-    if (props.value) {
-      console.log(props.label)
-      console.log(fillHeight)
-    }
+    // if (props.value) {
+    //   console.log(props.label)
+    //   console.log(fillHeight)
+    // }
   }
   return (
     <div>
