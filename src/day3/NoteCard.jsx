@@ -15,7 +15,7 @@ const NoteCard = (props) => {
       title: value,
       date: new Date().toLocaleDateString(),
     }
-    console.log(new_note)
+    // console.log(new_note)
     handleAddNewNote(new_note)
     setValue('')
   }
@@ -51,12 +51,11 @@ const NoteCard = (props) => {
 
   const handleBlur = () => {
     if (props.note) {
-      console.log(value)
       setEdit(false)
       if (value.length) {
         handleEditNote({
-          title: value,
           ...props.note,
+          title: value,
         })
       } else {
         handleDeleteNote(props.note.id)
