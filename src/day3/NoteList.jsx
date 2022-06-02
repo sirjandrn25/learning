@@ -5,20 +5,15 @@ import NoteCard from './NoteCard'
 import { UseNoteContext } from './context/noteContext'
 
 const NoteList = () => {
-  const { notes, filterNotes } = UseNoteContext()
-  React.useEffect(() => {
-    setTimeout(() => {
-      localStorage.setItem('notes', JSON.stringify(notes))
-    }, 1000)
-  }, [notes])
-  //   console.log(handleEditNote)
+  const { notes, searchVal } = UseNoteContext()
 
   let renderNotes = notes.map((note) => <NoteCard bg_color={'bg-yellow-300'} note={note} key={note.id} />)
-  //   let renderNotes = filterNotes.map((note) => <NoteCard bg_color={'bg-yellow-300'} note={note} key={note.id} />)
-  if (filterNotes.length) {
-    renderNotes = filterNotes.map((note) => <NoteCard bg_color={'bg-yellow-300'} note={note} key={note.id} />)
-  }
 
+  if (searchVal) {
+    renderNotes = notes
+      .filter((note) => note.title.startsWith(searchVal))
+      .map((note) => <NoteCard bg_color={'bg-yellow-300'} note={note} key={note.id} />)
+  }
   return (
     <div className='w-full grid grid-cols-3 gap-3 '>
       {renderNotes}
