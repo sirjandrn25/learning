@@ -4,6 +4,7 @@ import ExpenseTrackerContainer from './day2/ExpenseTrackerContainer'
 import NoteAppContainer from './day3/NoteAppContainer'
 import { NoteProvider } from './day3/context/noteContext'
 import QuizContainer from './day4/QuizContainer'
+import { QuizProvider } from './day4/context/quizContext'
 
 const App = () => {
   return (
@@ -11,7 +12,9 @@ const App = () => {
       {/* <NoteProvider>
         <NoteAppContainer />
       </NoteProvider> */}
-      <QuizContainer />
+      <QuizProvider>
+        <QuizContainer />
+      </QuizProvider>
     </div>
   )
 }

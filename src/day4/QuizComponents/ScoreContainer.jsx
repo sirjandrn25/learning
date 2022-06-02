@@ -1,20 +1,23 @@
 import React from 'react'
 import Card from '../UI/Card'
+import { UseQuizQuestion } from '../context/quizContext'
 
 const ScoreContainer = () => {
+  const { score, answerInfo } = UseQuizQuestion()
   return (
     <Card className='my-5 bg-slate-800 flex flex-row px-7 justify-around items-center h-[120px] w-full'>
       <div className=' flex flex-row '>
         <div className='flex flex-row items-center mr-5'>
           <span className='text-slate-300 mr-2 text-[20px]'>Score </span>
           <div>
-            <span className='font-bold text-[35px] text-white'>48</span>
+            <span className='font-bold text-[35px] text-white'>{score}</span>
             <span className='font-medium text-[16px] text-teal-500'> /150</span>
           </div>
         </div>
         <div className='flex flex-col'>
-          <span className='text-red-600'>Wrong Answers : 20</span>
-          <span className='text-green-500'>Correct Answers : 14</span>
+          <span className='text-red-600'>Wrong Answers : {answerInfo.totalAttempt - answerInfo.correctAnswer}</span>
+          <span className='text-green-500'>Correct Answers : {answerInfo.correctAnswer}</span>
+          <span className='text-teal-400'>Total Attempt : {answerInfo.totalAttempt}</span>
         </div>
       </div>
       <div className=' p-3 flex flex-row items-center'>

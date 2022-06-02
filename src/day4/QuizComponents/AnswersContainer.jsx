@@ -2,17 +2,18 @@ import React from 'react'
 import CheckBox from '../UI/CheckBox'
 import AnswerChoice from '../UI/AnswerChoice'
 import AnswerButton from '../UI/AnswerButton'
+import { UseQuizQuestion } from '../context/quizContext'
+
+const option_labels = ['A', 'B', 'C', 'D']
 const AnswersContainer = () => {
+  const { question, handleAnswerCheck } = UseQuizQuestion()
   return (
     <div className=' mt-5 grid grid-cols-2 gap-2 '>
-      {/* <AnswerChoice answer={'Kathmandu'} />
-        <AnswerChoice answer={'Dharan'} />
-        <AnswerChoice answer={'NepalGung'} />
-        <AnswerChoice answer={'Pokhara'} /> */}
-      <AnswerButton option={'A'} answer={'Dharan'} />
-      <AnswerButton option={'B'} answer={'Kathmandu'} />
-      <AnswerButton option={'C'} answer={'Nepal Gunj'} />
-      <AnswerButton option={'D'} answer={'Pokhara'} />
+      {question.answers.map((answer, index) => {
+        return (
+          <AnswerButton onCheckAnswer={handleAnswerCheck} option={option_labels[index]} answer={answer} key={index} />
+        )
+      })}
     </div>
   )
 }
