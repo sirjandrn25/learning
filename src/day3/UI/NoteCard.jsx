@@ -1,7 +1,7 @@
 import React from 'react'
-import { render } from 'react-dom'
+
 import Card from './Card'
-import { UseNoteContext } from './context/noteContext'
+import { UseNoteContext } from '../context/noteContext'
 
 const NoteCard = (props) => {
   const [value, setValue] = React.useState(props.note ? props.note.title : '')
@@ -15,7 +15,7 @@ const NoteCard = (props) => {
       title: value,
       date: new Date().toLocaleDateString(),
     }
-    // console.log(new_note)
+
     handleAddNewNote(new_note)
     setValue('')
   }
@@ -74,6 +74,7 @@ const NoteCard = (props) => {
           maxLength={200}
           placeholder='Add new note'
           className={`w-full h-[180px] resize-none rounded-lg ${props.bg_color} text-gray-700 p-2 focus:outline-none focus:border-4 focus:border-teal-400`}
+          required
         />
         <div className='w-full h-auto mt-3 flex flex-row justify-between items-center'>{renderBottomActionLabel}</div>
       </form>

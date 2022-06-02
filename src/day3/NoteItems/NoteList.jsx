@@ -1,8 +1,7 @@
 import React from 'react'
-import Card from './Card'
-import AddNewNote from './AddNewNote'
-import NoteCard from './NoteCard'
-import { UseNoteContext } from './context/noteContext'
+
+import NoteCard from '../UI/NoteCard'
+import { UseNoteContext } from '../context/noteContext'
 
 const NoteList = () => {
   const { notes, searchVal } = UseNoteContext()
@@ -15,7 +14,7 @@ const NoteList = () => {
       .map((note) => <NoteCard bg_color={'bg-yellow-300'} note={note} key={note.id} />)
   }
   return (
-    <div className='w-full grid grid-cols-3 gap-3 '>
+    <div className='w-full grid grid-cols-1 gap-1 md:grid-cols-2 lg:grid-cols-3 md:gap-3 '>
       {renderNotes}
 
       <NoteCard bg_color={'bg-blue-300'} />

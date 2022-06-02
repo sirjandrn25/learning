@@ -1,6 +1,6 @@
 import React from 'react'
-import Card from './Card'
-import { UseNoteContext } from './context/noteContext'
+import Card from '../UI/Card'
+import { UseNoteContext } from '../context/noteContext'
 
 const SearchBar = () => {
   const { handleSearchNotes, searchVal, setSearchVal } = UseNoteContext()

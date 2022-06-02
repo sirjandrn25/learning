@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from './Navbar'
-import NoteList from './NoteList'
-import SearchBar from './SearchBar'
+import Navbar from './Features/Navbar'
+import NoteList from './NoteItems/NoteList'
+import SearchBar from './Features/SearchBar'
 
 const NoteAppContainer = () => {
   return (
@@ -9,7 +9,7 @@ const NoteAppContainer = () => {
       <header>
         <Navbar />
       </header>
-      <main className='w-[1200px] mx-auto'>
+      <main className=' w-auto px-3 lg:w-[1200px] mx-auto'>
         <SearchBar />
         <NoteList />
       </main>
