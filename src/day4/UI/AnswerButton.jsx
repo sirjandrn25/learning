@@ -2,7 +2,7 @@ import React from 'react'
 
 const AnswerButton = (props) => {
   const handleClick = () => {
-    console.log('clicked')
+    // console.log('clicked')
     props.onCheckAnswer(props.answer)
   }
 

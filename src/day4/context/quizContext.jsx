@@ -1,23 +1,12 @@
 import React from 'react'
-
-const dummyQuestion = {
-  questionNo: 1,
-  question: 'Which is the capital of provinance number 1?',
-  answers: [
-    { answer: 'Kathmandu', correct: false },
-    { answer: 'Dharan', correct: false },
-    { answer: 'Pokhara', correct: false },
-    { answer: 'Biratnagar', correct: true },
-  ],
-  point: 2,
-}
+import { dummyQuestionsList } from './questions'
 
 const QuizContext = React.createContext({
   question: {},
 })
 
 export const QuizProvider = ({ children }) => {
-  const [question, setQuestion] = React.useState(dummyQuestion)
+  const [question, setQuestion] = React.useState(dummyQuestionsList[0])
 
   const [score, setScore] = React.useState(0)
   const [ansStatus, setAnsStatus] = React.useState('')
@@ -26,9 +15,17 @@ export const QuizProvider = ({ children }) => {
     totalAttempt: 0,
   })
 
+  const handleNextQuestion = () => {
+    setAnsStatus('')
+    const index = dummyQuestionsList.findIndex((object) => object.questionNo === question.questionNo)
+    if (dummyQuestionsList.length - 1 > index) {
+      setQuestion(dummyQuestionsList[index + 1])
+    }
+  }
+
   const handleAnswerCheck = (answer) => {
     setScore((prev_state) => {
-      return answer.correct ? prev_state + question.point : prev_state - question.point
+      return answer.correct ? prev_state + question.point : prev_state
     })
     setAnsStatus(answer.correct ? 'correct' : 'wrong')
     setAnswerInfo((prev_state) => {
@@ -40,13 +37,14 @@ export const QuizProvider = ({ children }) => {
   }
 
   return (
-    <QuizContext.Provider value={{ question, handleAnswerCheck, ansStatus, setAnsStatus, answerInfo, score }}>
+    <QuizContext.Provider value={{ question, handleAnswerCheck, ansStatus, handleNextQuestion, answerInfo, score }}>
       {children}
     </QuizContext.Provider>
   )
 }
 
 export const UseQuizQuestion = () => {
-  const { question, handleAnswerCheck, ansStatus, setAnsStatus, answerInfo, score } = React.useContext(QuizContext)
-  return { question, handleAnswerCheck, ansStatus, setAnsStatus, answerInfo, score }
+  const { question, handleAnswerCheck, ansStatus, handleNextQuestion, answerInfo, score } =
+    React.useContext(QuizContext)
+  return { question, handleAnswerCheck, ansStatus, handleNextQuestion, answerInfo, score }
 }

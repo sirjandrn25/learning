@@ -11,7 +11,7 @@ const ScoreContainer = () => {
           <span className='text-slate-300 mr-2 text-[20px]'>Score </span>
           <div>
             <span className='font-bold text-[35px] text-white'>{score}</span>
-            <span className='font-medium text-[16px] text-teal-500'> /150</span>
+            <span className='font-medium text-[16px] text-teal-500'> /10</span>
           </div>
         </div>
         <div className='flex flex-col'>
