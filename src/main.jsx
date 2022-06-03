@@ -9,6 +9,7 @@ import QuizContainer from './day4/QuizContainer'
 import LoginContainer from './day1/LoginContainer'
 import ExpenseTrackerContainer from './day2/ExpenseTrackerContainer'
 import NoteAppContainer from './day3/NoteAppContainer'
+import { NoteProvider } from './day3/context/noteContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -17,7 +18,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/' element={<App />} />
         <Route path='login-day1' element={<LoginContainer />} />
         <Route path='expense-tracker-day2' element={<ExpenseTrackerContainer />} />
-        <Route path='noteapp-day3' element={<NoteAppContainer />} />
+        <Route
+          path='noteapp-day3'
+          element={
+            <NoteProvider>
+              <NoteAppContainer />
+            </NoteProvider>
+          }
+        />
         <Route path='quiz-day4' element={<QuizLayoutContainer />}>
           <Route index element={<QuizHomeContainer />} />
           <Route path='game' element={<QuizContainer />} />

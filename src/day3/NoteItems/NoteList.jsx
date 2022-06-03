@@ -5,6 +5,7 @@ import { UseNoteContext } from '../context/noteContext'
 
 const NoteList = () => {
   const { notes, searchVal } = UseNoteContext()
+  console.log(notes)
 
   let renderNotes = notes.map((note) => <NoteCard bg_color={'bg-yellow-300'} note={note} key={note.id} />)
 

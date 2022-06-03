@@ -15,6 +15,7 @@ const NoteCard = (props) => {
       title: value,
       date: new Date().toLocaleDateString(),
     }
+    console.log(new_note)
 
     handleAddNewNote(new_note)
     setValue('')

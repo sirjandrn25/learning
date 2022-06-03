@@ -26,6 +26,7 @@ export const NoteProvider = ({ children }) => {
   }, [notes])
 
   const handleAddNewNote = (note) => {
+    console.log(note)
     setNotes((prev_notes) => {
       return [note, ...prev_notes]
     })
