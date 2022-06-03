@@ -49,8 +49,8 @@ export const dummyQuestionsList = [
     answers: [
       { answer: 'Create', correct: false },
       { answer: 'Inherits', correct: false },
-      { answer: 'Extends', correct: false },
-      { answer: 'This', correct: true },
+      { answer: 'Extends', correct: true },
+      { answer: 'This', correct: false },
     ],
     point: 2,
   },

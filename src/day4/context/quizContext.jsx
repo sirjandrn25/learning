@@ -10,17 +10,20 @@ export const QuizProvider = ({ children }) => {
 
   const [score, setScore] = React.useState(0)
   const [ansStatus, setAnsStatus] = React.useState('')
+
   const [answerInfo, setAnswerInfo] = React.useState({
     correctAnswer: 0,
     totalAttempt: 0,
   })
 
   const handleNextQuestion = () => {
-    setAnsStatus('')
+    
     const index = dummyQuestionsList.findIndex((object) => object.questionNo === question.questionNo)
     if (dummyQuestionsList.length - 1 > index) {
       setQuestion(dummyQuestionsList[index + 1])
-    }
+      setAnsStatus('');
+    } else {
+      setAnsStatus('complete')
   }
 
   const handleAnswerCheck = (answer) => {
@@ -37,14 +40,15 @@ export const QuizProvider = ({ children }) => {
   }
 
   return (
-    <QuizContext.Provider value={{ question, handleAnswerCheck, ansStatus, handleNextQuestion, answerInfo, score }}>
+    <QuizContext.Provider
+      value={{ question, handleAnswerCheck, ansStatus, handleNextQuestion, answerInfo, score, gameOver }}>
       {children}
     </QuizContext.Provider>
   )
 }
 
 export const UseQuizQuestion = () => {
-  const { question, handleAnswerCheck, ansStatus, handleNextQuestion, answerInfo, score } =
+  const { question, handleAnswerCheck, ansStatus, handleNextQuestion, answerInfo, score, gameOver } =
     React.useContext(QuizContext)
-  return { question, handleAnswerCheck, ansStatus, handleNextQuestion, answerInfo, score }
+  return { question, handleAnswerCheck, ansStatus, handleNextQuestion, answerInfo, score, gameOver }
 }
