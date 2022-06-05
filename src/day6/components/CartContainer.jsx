@@ -21,6 +21,14 @@ const CartContainer = () => {
     </Item>
   )
 
+  const handleOrder = () => {
+    if (isLogin) {
+      console.log('successfully ordered')
+    } else {
+      openModalHandler('login')
+    }
+  }
+
   let renderCartItem = (
     <ul className='flex flex-col w-[600px]'>
       {carts.map((cart) => {
@@ -30,27 +38,21 @@ const CartContainer = () => {
     </ul>
   )
 
-  const handleOrder = () => {
-    if (isLogin) {
-      console.log('successfully ordered')
-    } else {
-      openModalHandler('login')
-    }
-  }
+  let renderOrder = (
+    <Button onClick={handleOrder} className='bg-[#b30059] w-[120px]'>
+      Order
+    </Button>
+  )
   return (
     <Modal open={openModal === 'cart' ? true : false} onClose={closeModalHandler}>
-      {carts.length && renderCartItem}
+      {carts.length ? renderCartItem : ''}
       {carts.length === 0 && <h1 className='text-2xl'>No Carts Found</h1>}
 
       <div className='flex flex-row justify-end mt-3'>
         <Button onClick={closeModalHandler} className='w-[120px] bg-gray-600 mr-3 '>
           close
         </Button>
-        {carts.length && (
-          <Button onClick={handleOrder} className='bg-[#b30059] w-[120px]'>
-            Order
-          </Button>
-        )}
+        {carts.length ? renderOrder : ''}
       </div>
     </Modal>
   )
