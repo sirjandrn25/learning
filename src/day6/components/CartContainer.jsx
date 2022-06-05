@@ -5,12 +5,14 @@ import { useFoodContext } from '../context/foodContext'
 import { useUIContext } from '../context/uiContext'
 import Button from '../UI/Button'
 import Item from '../UI/Item'
+import { useUserAuthContext } from '../context/userContext'
 
 const totalAmountReducer = (prevVal, currCart) => prevVal + currCart.food.price * currCart.qty
 
 const CartContainer = () => {
-  const { isCartOpen, toggleCartOpen } = useUIContext()
+  const { openModal, closeModalHandler, openModalHandler } = useUIContext()
   const { carts } = useFoodContext()
+  const { isLogin } = useUserAuthContext()
 
   let totalRender = (
     <Item className=''>
@@ -27,16 +29,28 @@ const CartContainer = () => {
       {totalRender}
     </ul>
   )
+
+  const handleOrder = () => {
+    if (isLogin) {
+      console.log('successfully ordered')
+    } else {
+      openModalHandler('login')
+    }
+  }
   return (
-    <Modal onClose={toggleCartOpen} open={isCartOpen}>
+    <Modal open={openModal === 'cart' ? true : false} onClose={closeModalHandler}>
       {carts.length && renderCartItem}
       {carts.length === 0 && <h1 className='text-2xl'>No Carts Found</h1>}
 
       <div className='flex flex-row justify-end mt-3'>
-        <Button onClick={toggleCartOpen} className='w-[120px] bg-gray-600 mr-3 '>
+        <Button onClick={closeModalHandler} className='w-[120px] bg-gray-600 mr-3 '>
           close
         </Button>
-        {carts.length && <Button className='bg-[#b30059] w-[120px]'>Order</Button>}
+        {carts.length && (
+          <Button onClick={handleOrder} className='bg-[#b30059] w-[120px]'>
+            Order
+          </Button>
+        )}
       </div>
     </Modal>
   )

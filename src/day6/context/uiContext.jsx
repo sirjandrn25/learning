@@ -3,10 +3,13 @@ import React from 'react'
 const UIContext = React.createContext()
 
 export const UIProvider = ({ children }) => {
-  const [isCartOpen, setIsCartOpen] = React.useState(false)
-  const toggleCartOpen = () => setIsCartOpen((prevState) => !prevState)
+  const [openModal, setOpenModal] = React.useState('')
 
-  return <UIContext.Provider value={{ isCartOpen, toggleCartOpen }}>{children}</UIContext.Provider>
+  const openModalHandler = (open) => setOpenModal(open)
+
+  const closeModalHandler = () => setOpenModal('')
+
+  return <UIContext.Provider value={{ openModalHandler, closeModalHandler, openModal }}>{children}</UIContext.Provider>
 }
 
 export const useUIContext = () => React.useContext(UIContext)

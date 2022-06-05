@@ -13,6 +13,7 @@ import { NoteProvider } from './day3/context/noteContext'
 import FoodOrderContainer from './day6/FoodOrderContainer'
 import { FoodProvider } from './day6/context/foodContext'
 import { UIProvider } from './day6/context/uiContext'
+import { UserAuthProvider } from './day6/context/userContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -38,7 +39,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           element={
             <FoodProvider>
               <UIProvider>
-                <FoodOrderContainer />
+                <UserAuthProvider>
+                  <FoodOrderContainer />
+                </UserAuthProvider>
               </UIProvider>
             </FoodProvider>
           }
