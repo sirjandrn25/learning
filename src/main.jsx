@@ -12,6 +12,7 @@ import NoteAppContainer from './day3/NoteAppContainer'
 import { NoteProvider } from './day3/context/noteContext'
 import FoodOrderContainer from './day6/FoodOrderContainer'
 import { FoodProvider } from './day6/context/foodContext'
+import { UIProvider } from './day6/context/uiContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -36,7 +37,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           path='food-order-day6'
           element={
             <FoodProvider>
-              <FoodOrderContainer />
+              <UIProvider>
+                <FoodOrderContainer />
+              </UIProvider>
             </FoodProvider>
           }
         />

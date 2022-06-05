@@ -24,24 +24,39 @@ export const FoodProvider = ({ children }) => {
 
   const [carts, setCarts] = React.useState([...dymmyCarts])
 
+  const checkAlreayPresetCart = (food) => {
+    const data = carts.find((cart) => cart.food.id === food.id)
+    return data
+  }
   const addNewFoodInCart = (item) => {
-    setCarts((prevState) => {
-      return [item, ...prevState]
-    })
+    if (checkAlreayPresetCart(item.food)) {
+      setCarts((prevState) => {
+        return prevState.map((cart) => {
+          if (cart.food.id === item.food.id) {
+            return { ...cart, qty: cart.qty + item.qty }
+          }
+          return cart
+        })
+      })
+    } else {
+      setCarts((prevState) => {
+        return [item, ...prevState]
+      })
+    }
   }
 
   const incrementQty = (item) => {
     setCarts((prevState) => {
       return prevState.map((cart) => {
         if (cart.id === item.id) {
-          cart.qty += 1
+          return { ...cart, qty: cart.qty + 1 }
         }
         return cart
       })
     })
   }
+
   const decrementQty = (item) => {
-    console.log(item.qty)
     if (item.qty <= 1) {
       setCarts((prevState) => {
         return prevState.filter((cart) => cart.id !== item.id)
@@ -50,7 +65,7 @@ export const FoodProvider = ({ children }) => {
       setCarts((prevState) => {
         return prevState.map((cart) => {
           if (cart.id === item.id) {
-            cart.qty = cart.qty - 1
+            return { ...cart, qty: cart.qty - 1 }
           }
           return cart
         })

@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from './components/Navbar'
 import FoodContainer from './components/FoodContainer'
-import Modal from './components/Modal'
+
 import CartContainer from './components/CartContainer'
 
 const FoodOrderContainer = () => {
@@ -12,7 +12,7 @@ const FoodOrderContainer = () => {
 
   return (
     <>
-      <div className='min-h-screen w-screen bg-gray-100'>
+      <div className='min-h-screen w-screen flex items-center justify-center bg-gray-100'>
         <header>
           <Navbar onOpen={handleOpenModal} />
         </header>
@@ -21,9 +21,7 @@ const FoodOrderContainer = () => {
           <FoodContainer />
         </main>
       </div>
-      <Modal open={isOpen} onClose={handleCloseModal}>
-        <CartContainer />
-      </Modal>
+      <CartContainer />
     </>
   )
 }

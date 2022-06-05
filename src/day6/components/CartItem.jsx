@@ -1,16 +1,18 @@
 import React from 'react'
-import Card from '../UI/Card'
+import Item from '../UI/Item'
 import { useFoodContext } from '../context/foodContext'
 
 const CartItem = (props) => {
   const { decrementQty, incrementQty } = useFoodContext()
   return (
     <>
-      <li className='flex flex-row w-full justify-between items-center border-b-[1px] border-b-[#660000] p-2'>
+      <Item className='border-b-[#660000]'>
         <div className='flex flex-col'>
           <span className='font-bold text-lg capitalize'>{props.cart.food.title}</span>
           <div className='flex flex-row justify-center items-center mt-1'>
-            <span className='mr-5 font-bold text-[#990000]'>${props.cart.qty * props.cart.food.price}</span>
+            <span className='mr-5 font-bold text-[#990000]'>
+              ${(props.cart.qty * props.cart.food.price).toFixed(4)}
+            </span>
             <span className='border-2 px-2'>x {props.cart.qty}</span>
           </div>
         </div>
@@ -26,7 +28,7 @@ const CartItem = (props) => {
             +
           </span>
         </div>
-      </li>
+      </Item>
     </>
   )
 }
