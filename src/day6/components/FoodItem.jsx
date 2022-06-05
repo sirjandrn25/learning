@@ -13,7 +13,7 @@ const FoodItem = (props) => {
     const item = {
       id: Math.floor(Math.random() * 100),
       food: props.food,
-      qty: qty,
+      qty: +qty,
     }
     addNewFoodInCart(item)
     openModalHandler('cart')
