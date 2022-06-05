@@ -7,7 +7,7 @@ import Item from '../UI/Item'
 const FoodItem = (props) => {
   const [qty, setQty] = React.useState(1)
   const { addNewFoodInCart } = useFoodContext()
-  const { toggleCartOpen } = useUIContext()
+  const { openModalHandler } = useUIContext()
 
   const handleAddNewFood = () => {
     const item = {
@@ -16,7 +16,7 @@ const FoodItem = (props) => {
       qty: qty,
     }
     addNewFoodInCart(item)
-    toggleCartOpen()
+    openModalHandler('cart')
   }
 
   return (
