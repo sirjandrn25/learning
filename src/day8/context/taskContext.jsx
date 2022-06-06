@@ -3,8 +3,9 @@ import useHttp from '../hooks/useHttp'
 
 const TaskContext = React.createContext()
 
-const api = 'http://localhost:4000/tasks'
-// const api = `http://`
+const protocol = window.location.protocol
+// const api = 'http://localhost:4000/tasks'
+const api = `${protocol}//${window.location.hostname}:4000/tasks`
 
 export const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = React.useState([])
