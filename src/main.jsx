@@ -14,6 +14,9 @@ import FoodOrderContainer from './day6/FoodOrderContainer'
 import { FoodProvider } from './day6/context/foodContext'
 import { UIProvider } from './day6/context/uiContext'
 import { UserAuthProvider } from './day6/context/userContext'
+import PracticeContainer from './day5/PracticeContainer'
+import TaskContainer from './day8/TaskContainer'
+import { TaskProvider } from './day8/context/taskContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -34,6 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route index element={<QuizHomeContainer />} />
           <Route path='game' element={<QuizContainer />} />
         </Route>
+        <Route path='/practice-day5' element={<PracticeContainer />} />
         <Route
           path='food-order-day6'
           element={
@@ -44,6 +48,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
                 </UserAuthProvider>
               </UIProvider>
             </FoodProvider>
+          }
+        />
+        <Route
+          path='/task-day8'
+          element={
+            <TaskProvider>
+              <TaskContainer />
+            </TaskProvider>
           }
         />
       </Routes>

@@ -1,10 +1,13 @@
 import React from 'react'
+import BackEndHandle from './BackEndHandle'
+import CounterContainer from './Counter'
 import LoginFormContainer from './LoginFormContainer'
 
 const PracticeContainer = () => {
   return (
     <div>
-      <LoginFormContainer />
+      {/* <BackEndHandle /> */}
+      {/* <CounterContainer /> */}
     </div>
   )
 }
