@@ -4,6 +4,8 @@ import Input from '../UI/Input'
 
 import useInput from '../hooks/useInput'
 import { useFoodContext } from '../context/foodContext'
+import { UseOrderContext } from '../context/orderContext'
+import { UseCartContext } from '../context/cartContext'
 
 const isEmpty = (value) => {
   return value === '' ? 'this field may not be empty' : false
@@ -29,7 +31,8 @@ const isNumber = (value) => {
 }
 
 const CheckOut = () => {
-  const { carts } = useFoodContext()
+  const { carts } = UseCartContext()
+  const { addOrderHandler } = UseOrderContext()
   const {
     enteredValue: fName,
     inputChangeHandler: fNameChangeHandler,
@@ -102,6 +105,7 @@ const CheckOut = () => {
     }
 
     console.log(orderData)
+    addOrderHandler(orderData)
     console.log('submit form')
     // fNameReset()
     // lNameReset()

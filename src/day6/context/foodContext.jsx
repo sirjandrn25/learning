@@ -4,26 +4,9 @@ import useHttp from '../hooks/useHttp'
 
 const FoodContext = React.createContext({
   foods: [],
-
-  orders: [],
 })
 
-const dymmyCarts = [
-  {
-    id: 1,
-    food: data[0],
-    qty: 5,
-  },
-  {
-    id: 2,
-    food: data[1],
-    qty: 2,
-  },
-]
-
 const foodApi = 'http://localhost:4000/meals'
-
-const orderApi = 'http://localhost:4000/orders'
 
 export const FoodProvider = ({ children }) => {
   const [foods, setFoods] = React.useState([])
