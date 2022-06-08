@@ -1,9 +1,10 @@
 import React from 'react'
 import Item from '../UI/Item'
-import { useFoodContext } from '../context/foodContext'
+// import { useFoodContext } from '../context/foodContext'
+import { UseCartContext } from '../context/cartContext'
 
 const CartItem = (props) => {
-  const { decrementQty, incrementQty } = useFoodContext()
+  const { decrementQty, incrementQty } = UseCartContext()
 
   return (
     <>

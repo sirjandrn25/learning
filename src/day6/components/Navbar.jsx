@@ -3,11 +3,12 @@ import Button from '../UI/Button'
 import { useFoodContext } from '../context/foodContext'
 import { useUIContext } from '../context/uiContext'
 import { useUserAuthContext } from '../context/userContext'
+import { UseCartContext } from '../context/cartContext'
 
 const cartCountReduce = (prevVal, currVal) => prevVal + currVal.qty
 
 const Navbar = () => {
-  const { carts } = useFoodContext()
+  const { carts } = UseCartContext()
   const { openModal, openModalHandler, closeModalHandler } = useUIContext()
   const { isLogin, handleLogout } = useUserAuthContext()
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Modal from '../UI/Modal'
 import CartItem from './CartItem'
 import { useFoodContext } from '../context/foodContext'
@@ -7,12 +7,16 @@ import Button from '../UI/Button'
 import Item from '../UI/Item'
 import { useUserAuthContext } from '../context/userContext'
 
+import CheckOut from './CheckOut'
+import { UseCartContext } from '../context/cartContext'
+
 const totalAmountReducer = (prevVal, currCart) => prevVal + currCart.meal.price * currCart.qty
 
 const CartContainer = () => {
   const { openModal, closeModalHandler, openModalHandler } = useUIContext()
-  const { carts } = useFoodContext()
+  const { carts, cartLoading } = UseCartContext()
   const { isLogin } = useUserAuthContext()
+  const [checkout, setCheckout] = useState(false)
 
   let totalRender = (
     <Item className=''>
@@ -39,13 +43,15 @@ const CartContainer = () => {
   )
 
   let renderOrder = (
-    <Button onClick={handleOrder} className='bg-[#b30059] w-[120px]'>
-      Order
+    <Button onClick={(e) => setCheckout(!checkout)} className='bg-[#b30059] w-[120px]'>
+      checkout
     </Button>
   )
   return (
     <Modal open={openModal === 'cart' ? true : false} onClose={closeModalHandler}>
+      {cartLoading && 'loading .....'}
       {carts.length ? renderCartItem : ''}
+
       {carts.length === 0 && <h1 className='text-2xl'>No Carts Found</h1>}
 
       <div className='flex flex-row justify-end mt-3'>
@@ -54,6 +60,8 @@ const CartContainer = () => {
         </Button>
         {carts.length ? renderOrder : ''}
       </div>
+
+      {checkout && <CheckOut />}
     </Modal>
   )
 }

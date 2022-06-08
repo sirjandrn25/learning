@@ -2,11 +2,12 @@ import React from 'react'
 import Button from '../UI/Button'
 import { useFoodContext } from '../context/foodContext'
 import { useUIContext } from '../context/uiContext'
+import { UseCartContext } from '../context/cartContext'
 import Item from '../UI/Item'
 
 const FoodItem = (props) => {
   const [qty, setQty] = React.useState(1)
-  const { addNewFoodInCart } = useFoodContext()
+  const { addNewFoodInCart } = UseCartContext()
   const { openModalHandler } = useUIContext()
 
   const handleAddNewFood = () => {

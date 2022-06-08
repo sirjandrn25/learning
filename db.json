@@ -58,13 +58,23 @@
   "carts": [
     {
       "meal": {
+        "id": 1,
+        "title": "pizza and burger",
+        "description": "Lorem ipsudolor sit amet consectetur.",
+        "price": 22.56
+      },
+      "qty": 5,
+      "id": 1
+    },
+    {
+      "meal": {
         "title": "veg momo",
         "description": "Lorem ipsudolor sit amet consectetur.",
         "price": 44.66,
         "id": 2
       },
-      "qty": 4,
-      "id": 1
+      "qty": 3,
+      "id": 2
     }
   ],
   "orders": [

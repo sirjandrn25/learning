@@ -11,12 +11,18 @@ import ExpenseTrackerContainer from './day2/ExpenseTrackerContainer'
 import NoteAppContainer from './day3/NoteAppContainer'
 import { NoteProvider } from './day3/context/noteContext'
 import FoodOrderContainer from './day6/FoodOrderContainer'
-import { FoodProvider } from './day6/context/foodContext'
+import FoodRootProvider from './day6/context'
 import { UIProvider } from './day6/context/uiContext'
 import { UserAuthProvider } from './day6/context/userContext'
 import PracticeContainer from './day5/PracticeContainer'
 import TaskContainer from './day8/TaskContainer'
 import { TaskProvider } from './day8/context/taskContext'
+import CheckOut from './day6/components/CheckOut'
+import Home from './day6/pages/Home'
+import ReduxConcept from './day10/ReduxConcept'
+import store from './day10/store'
+
+import { Provider } from 'react-redux'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -41,21 +47,27 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route
           path='food-order-day6'
           element={
-            <FoodProvider>
-              <UIProvider>
-                <UserAuthProvider>
-                  <FoodOrderContainer />
-                </UserAuthProvider>
-              </UIProvider>
-            </FoodProvider>
-          }
-        />
+            <FoodRootProvider>
+              <FoodOrderContainer />
+            </FoodRootProvider>
+          }>
+          <Route index element={<Home />} />
+          {/* <Route path='check-out' element={<CheckOut />} /> */}
+        </Route>
         <Route
           path='/task-day8'
           element={
             <TaskProvider>
               <TaskContainer />
             </TaskProvider>
+          }
+        />
+        <Route
+          path='redux-concept-day10'
+          element={
+            <Provider store={store}>
+              <ReduxConcept />
+            </Provider>
           }
         />
       </Routes>
