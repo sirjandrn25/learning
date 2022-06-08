@@ -7,7 +7,7 @@ import Button from '../UI/Button'
 import Item from '../UI/Item'
 import { useUserAuthContext } from '../context/userContext'
 
-const totalAmountReducer = (prevVal, currCart) => prevVal + currCart.food.price * currCart.qty
+const totalAmountReducer = (prevVal, currCart) => prevVal + currCart.meal.price * currCart.qty
 
 const CartContainer = () => {
   const { openModal, closeModalHandler, openModalHandler } = useUIContext()

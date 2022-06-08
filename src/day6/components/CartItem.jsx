@@ -4,14 +4,15 @@ import { useFoodContext } from '../context/foodContext'
 
 const CartItem = (props) => {
   const { decrementQty, incrementQty } = useFoodContext()
+
   return (
     <>
       <Item className='border-b-[#660000]'>
         <div className='flex flex-col'>
-          <span className='font-bold text-lg capitalize'>{props.cart.food.title}</span>
+          <span className='font-bold text-lg capitalize'>{props.cart.meal.title}</span>
           <div className='flex flex-row justify-center items-center mt-1'>
             <span className='mr-5 font-bold text-[#990000]'>
-              ${(props.cart.qty * props.cart.food.price).toFixed(4)}
+              ${(props.cart.qty * props.cart.meal.price).toFixed(4)}
             </span>
             <span className='border-2 px-2'>x {props.cart.qty}</span>
           </div>

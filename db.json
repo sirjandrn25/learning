@@ -28,5 +28,73 @@
       "id": 945,
       "title": "new tasks"
     }
+  ],
+  "meals": [
+    {
+      "id": 1,
+      "title": "pizza and burger",
+      "description": "Lorem ipsudolor sit amet consectetur.",
+      "price": 22.56
+    },
+    {
+      "title": "veg momo",
+      "description": "Lorem ipsudolor sit amet consectetur.",
+      "price": 44.66,
+      "id": 2
+    },
+    {
+      "title": "chicken momo",
+      "description": "Lorem ipsudolor sit amet consectetur.",
+      "price": 48.45,
+      "id": 3
+    },
+    {
+      "title": "french fry",
+      "description": "Lorem ipsudolor sit amet consectetur.",
+      "price": 46.36,
+      "id": 4
+    }
+  ],
+  "carts": [
+    {
+      "meal": {
+        "title": "veg momo",
+        "description": "Lorem ipsudolor sit amet consectetur.",
+        "price": 44.66,
+        "id": 2
+      },
+      "qty": 4,
+      "id": 1
+    }
+  ],
+  "orders": [
+    {
+      "meal": {
+        "id": 1,
+        "title": "pizza and burger",
+        "description": "Lorem ipsudolor sit amet consectetur.",
+        "price": 22.56
+      },
+      "qty": 5,
+      "firstName": "sirjan",
+      "lastName": "tamang",
+      "email": "user@example.com",
+      "contact_no": "9816390320",
+      "id": 2
+    },
+    {
+      "meal": {
+        "id": 1,
+        "title": "pizza and burger",
+        "description": "Lorem ipsudolor sit amet consectetur.",
+        "price": 22.56
+      },
+      "qty": 5,
+      "firstName": "sirjan",
+      "lastName": "tamang",
+      "email": "user@example.com",
+      "contact_no": "9816390320",
+      "id": 3
+    }
   ]
 }

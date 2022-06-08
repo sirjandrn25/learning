@@ -11,8 +11,7 @@ const FoodItem = (props) => {
 
   const handleAddNewFood = () => {
     const item = {
-      id: Math.floor(Math.random() * 100),
-      food: props.food,
+      meal: props.food,
       qty: +qty,
     }
     addNewFoodInCart(item)
